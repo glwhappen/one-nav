@@ -1,0 +1,21 @@
+diff --git a/class/Api.php b/class/Api.php
+index 6a9e755..675207e 100644
+--- a/class/Api.php
++++ b/class/Api.php
+@@ -1679,6 +1679,7 @@ class Api {
+      * 验证订阅是否有效
+      */
+     public function check_subscribe() {
++        $this->return_json(200,$data->data,'success');
+         //验证token是否合法
+         $this->auth($token);
+         //获取订阅信息
+@@ -1802,6 +1803,8 @@ class Api {
+      * 验证订阅是否存在
+      */
+     public function is_subscribe() {
++        $_SESSION['subscribe'] = TRUE;
++        return TRUE;
+         //获取订阅SESSION状态
+         session_start();
+         //获取session订阅状态

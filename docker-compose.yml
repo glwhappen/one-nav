@@ -1,0 +1,11 @@
+version: '3.3' # 使用 docker-compose 的版本
+services:
+  onenav:
+    # image: helloz/onenav:0.9.34 # 使用的镜像和版本
+    build: .
+    container_name: onenav # 容器名称
+    ports:
+      - "8088:80" # 端口映射，格式为 宿主机端口:容器端口
+    volumes:
+      - "./onenav:/data/wwwroot/default/data" # 卷映射，格式为 宿主机目录:容器目录
+    restart: unless-stopped # 容器退出时的重启策略
